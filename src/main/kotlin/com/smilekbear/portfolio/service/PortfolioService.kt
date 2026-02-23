@@ -41,11 +41,13 @@ class PortfolioService (
                     )
                 }
 
-        val projects : List<ProjectDto> =
-            projectItems.map { item ->
+        val projects: List<ProjectDto> =
+            projectItems.mapNotNull { item ->
+                if (item.fullTitle == null) return@mapNotNull null
+
                 ProjectDto(
                     title = item.title,
-                    category =  item.category,
+                    category = item.category,
                     dateRange = item.dateRange,
                     thumbnailUrl = item.thumbnailUrl,
                     review = item.review,
