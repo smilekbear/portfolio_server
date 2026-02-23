@@ -43,7 +43,7 @@ class PortfolioService (
 
         val projects: List<ProjectDto> =
             projectItems.mapNotNull { item ->
-                if (item.fullTitle == null) return@mapNotNull null
+                if (item.fullTitle.isNullOrBlank()) return@mapNotNull null
 
                 ProjectDto(
                     title = item.title,
