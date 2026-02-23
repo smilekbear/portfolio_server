@@ -44,6 +44,7 @@ class PortfolioService (
         val projects: List<ProjectDto> =
             projectItems.mapNotNull { item ->
                 if (item.fullTitle.isNullOrBlank()) return@mapNotNull null
+                println("DB fullTitle raw = [${item.fullTitle}] len=${item.fullTitle?.length}")
 
                 ProjectDto(
                     title = item.title,
