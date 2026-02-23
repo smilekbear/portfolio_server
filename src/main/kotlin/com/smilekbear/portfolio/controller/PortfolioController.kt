@@ -16,6 +16,7 @@ class PortfolioController(
 
     @GetMapping
     fun getPortfolio(): ResponseEntity<ApiResponse<PortfolioResponse>> {
+        println("### PortfolioController HIT ###")
         return ResponseEntity.ok(ApiResponse.ok(portfolioService.getPortfolio()))
     }
 }
