@@ -41,20 +41,32 @@ class PortfolioService (
                     )
                 }
 
-        val projects: List<ProjectDto> =
-            projectItems.mapNotNull { item ->
-                if (item.fullTitle.isNullOrBlank()) return@mapNotNull null
-                println("DB fullTitle raw = [${item.fullTitle}] len=${item.fullTitle?.length}")
-
+        val projects : List<ProjectDto> =
+            projectItems.map { item ->
                 ProjectDto(
                     title = item.title,
-                    category = item.category,
+                    category =  item.category,
                     dateRange = item.dateRange,
                     thumbnailUrl = item.thumbnailUrl,
                     review = item.review,
                     skills = item.skills.map { it.skillName }
                 )
             }
+
+//        val projects: List<ProjectDto> =
+//            projectItems.mapNotNull { item ->
+//                if (item.fullTitle.isNullOrBlank()) return@mapNotNull null
+//                println("DB fullTitle raw = [${item.fullTitle}] len=${item.fullTitle?.length}")
+//
+//                ProjectDto(
+//                    title = item.title,
+//                    category = item.category,
+//                    dateRange = item.dateRange,
+//                    thumbnailUrl = item.thumbnailUrl,
+//                    review = item.review,
+//                    skills = item.skills.map { it.skillName }
+//                )
+//            }
 
         val careers : List<CareerDto> =
             careerItems.map { c ->
