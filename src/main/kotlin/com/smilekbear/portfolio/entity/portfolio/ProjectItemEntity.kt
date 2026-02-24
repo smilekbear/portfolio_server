@@ -29,9 +29,6 @@ class ProjectItemEntity (
     val thumbnailUrl: String? = null,
 
     @Column()
-    val votes: Int? = 0,
-
-    @Column()
     val review: String? = null,
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
