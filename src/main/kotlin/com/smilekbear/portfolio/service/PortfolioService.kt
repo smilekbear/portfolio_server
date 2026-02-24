@@ -41,18 +41,6 @@ class PortfolioService (
                     )
                 }
 
-//        val projects : List<ProjectDto> =
-//            projectItems.map { item ->
-//                ProjectDto(
-//                    title = item.title,
-//                    category =  item.category,
-//                    dateRange = item.dateRange,
-//                    thumbnailUrl = item.thumbnailUrl,
-//                    review = item.review,
-//                    skills = item.skills.map { it.skillName }
-//                )
-//            }
-
         val projects: List<ProjectDto> =
             projectItems.mapNotNull { item ->
                 if (item.fullTitle.isNullOrBlank()) return@mapNotNull null
@@ -64,7 +52,9 @@ class PortfolioService (
                     dateRange = item.dateRange,
                     thumbnailUrl = item.thumbnailUrl,
                     review = item.review,
-                    skills = item.skills.map { it.skillName }
+                    skills = item.skills.map { it.skillName },
+                    major = item.major,
+                    organization = item.organization
                 )
             }
 

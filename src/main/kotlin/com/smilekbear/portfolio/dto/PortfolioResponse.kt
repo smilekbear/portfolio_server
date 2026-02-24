@@ -24,7 +24,9 @@ data class ProjectDto(
     val dateRange: String,
     val thumbnailUrl: String?,
     val skills: List<String>,
-    val review: String?
+    val review: String?,
+    val major: String?,
+    val organization: String?
 )
 
 data class CareerDto(

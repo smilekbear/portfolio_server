@@ -36,4 +36,10 @@ class ProjectItemEntity (
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
     val skills: List<ProjectSkillEntity> = emptyList(),
+
+    @Column(name = "major")
+    val major: String? = null,
+
+    @Column(name = "organization")
+    val organization: String? = null,
 )
